@@ -62,6 +62,12 @@ map("n", "<S-F12>", vim.lsp.buf.references, opts)
 -- Ctrl+. → Code actions (VS Code habit)
 map("n", "<C-.>", vim.lsp.buf.code_action, opts)
 
+-- Alt+Left → Navigate back (Rider style)
+map("n", "<A-Left>", "<C-o>", opts)
+
+-- Alt+Right → Navigate forward (Rider style)
+map("n", "<A-Right>", "<C-i>", opts)
+
 --------------------------------------------------
 -- SEARCH / SYMBOLS
 --------------------------------------------------
