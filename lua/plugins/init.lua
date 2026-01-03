@@ -42,7 +42,7 @@ require("lazy").setup({
 
   -- LSP
   {
-    "neovim/nvim-lspconfig",
+    "seblyng/roslyn.nvim",
     config = function()
       require("plugins.lsp")
     end

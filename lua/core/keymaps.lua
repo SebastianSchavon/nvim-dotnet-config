@@ -82,6 +82,24 @@ map("n", "<C-S-i>", function()
 end, opts)
 
 --------------------------------------------------
+-- DIAGNOSTICS
+--------------------------------------------------
+
+-- F8 → Next diagnostic (VS Code)
+map("n", "<F8>", vim.diagnostic.goto_next, opts)
+
+-- Shift+F8 → Previous diagnostic
+map("n", "<S-F8>", vim.diagnostic.goto_prev, opts)
+
+-- Ctrl+Shift+M → Show diagnostics (Problems panel)
+map("n", "<C-S-m>", "<cmd>Telescope diagnostics<cr>", opts)
+
+-- Leader shortcuts
+map("n", "<leader>d", vim.diagnostic.open_float, opts)
+map("n", "[d", vim.diagnostic.goto_prev, opts)
+map("n", "]d", vim.diagnostic.goto_next, opts)
+
+--------------------------------------------------
 -- HOVER / DOCS
 --------------------------------------------------
 
