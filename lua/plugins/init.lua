@@ -4,9 +4,26 @@ vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
 require("lazy").setup({
 
   -- UI
-  { "folke/tokyonight.nvim" },
-  { "nvim-tree/nvim-tree.lua" },
-  { "nvim-lualine/lualine.nvim" },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme tokyonight")
+    end
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      require("plugins.ui")
+    end
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    config = function()
+      require("lualine").setup()
+    end
+  },
 
   -- Search
   {
@@ -18,10 +35,18 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    config = function()
+      require("plugins.treesitter")
+    end
   },
 
   -- LSP
-  { "neovim/nvim-lspconfig" },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("plugins.lsp")
+    end
+  },
 
   -- Completion
   {
@@ -32,12 +57,25 @@ require("lazy").setup({
       "hrsh7th/cmp-path",
       "L3MON4D3/LuaSnip",
     },
+    config = function()
+      require("plugins.completion")
+    end
   },
 
   -- Git
-  { "lewis6991/gitsigns.nvim" },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end
+  },
 
   -- Debugging
-  { "mfussenegger/nvim-dap" },
+  {
+    "mfussenegger/nvim-dap",
+    config = function()
+      require("plugins.dap")
+    end
+  },
 })
 

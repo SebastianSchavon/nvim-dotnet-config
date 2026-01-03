@@ -23,3 +23,32 @@ Opinionated Neovim setup for .NET / C# development.
 sudo pacman -S neovim ripgrep fd nodejs npm dotnet-sdk
 yay -S omnisharp-roslyn netcoredbg
 
+--------------------------------------------------------------------------------
+
+## Windows 11 Installation
+
+### Recommended: WSL (Best Experience)
+
+This configuration works best under WSL, providing the same experience as Linux.
+
+#### Install WSL
+Open PowerShell as Administrator:
+
+```powershell
+wsl --install
+
+sudo apt update
+sudo apt install -y \
+  neovim \
+  git \
+  ripgrep \
+  fd-find \
+  nodejs \
+  npm \
+  dotnet-sdk-8.0
+
+ln -s $(which fdfind) ~/.local/bin/fd
+
+git clone https://github.com/<your-username>/nvim-dotnet-config ~/.config/nvim
+nvim
+

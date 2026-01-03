@@ -1,8 +1,12 @@
-local lspconfig = require("lspconfig")
-
-lspconfig.omnisharp.setup({
+vim.lsp.config.omnisharp = {
   cmd = { "omnisharp" },
-  enable_import_completion = true,
-  enable_roslyn_analyzers = true,
-})
+  filetypes = { "cs", "vb" },
+  root_markers = { "*.sln", "*.csproj", "omnisharp.json", "function.json" },
+  settings = {
+    enable_import_completion = true,
+    enable_roslyn_analyzers = true,
+  },
+}
+
+vim.lsp.enable("omnisharp")
 
